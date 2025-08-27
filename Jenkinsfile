@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/tomlinmathew/my-app.git'
+        git 'https://github.com/tomlinmathew/DockerProject.git'
       }
     }
 
