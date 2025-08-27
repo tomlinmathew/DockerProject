@@ -3,13 +3,13 @@ pipeline {
 
   environment {
     IMAGE_NAME = "myapp"
-    DOCKER_REGISTRY = "docker.io/yourusername"
+    DOCKER_REGISTRY = "docker.io/tomlinmathew"
   }
 
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/yourusername/my-app.git'
+        git 'https://github.com/tomlinmathew/my-app.git'
       }
     }
 
