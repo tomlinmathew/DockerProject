@@ -15,13 +15,14 @@ pipeline {
 
     stage('Build Docker Image') {
       steps {
+        echo "Triggered by: ${env.BUILD_USER}"
         sh 'docker build -t $IMAGE_NAME .'
       }
     }
 
     stage('Push to DockerHub') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'admin', passwordVariable: 'admin')]) {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
           sh 'echo $PASS | docker login -u $USER --password-stdin'
           sh 'docker tag $IMAGE_NAME $DOCKER_REGISTRY/$IMAGE_NAME:latest'
           sh 'docker push $DOCKER_REGISTRY/$IMAGE_NAME:latest'
