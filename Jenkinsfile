@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/tomlinmathew/DockerProject.git'
+        git branch: 'main', credentialsId: 'github-creds', url: 'https://github.com/tomlinmathew/DockerProject.git'
       }
     }
 
